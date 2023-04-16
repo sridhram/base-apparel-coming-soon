@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap');
+
+:root{
+    --desc-clr:hsl(0, 36%, 70%);
+    --err-border-clr:hsl(0, 93%, 68%);
+    --head-clr:hsl(0, 6%, 24%);
+    --font-small:300;
+    --font-med:400;
+    --font-large:600;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+    list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+body{
+    display: grid;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.img-wrapper{
+    background: url(./images/hero-desktop.jpg) no-repeat;
+    background-size: cover;
+    width: 100%;
+}
+
+.content-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 4rem 8rem 5rem 5rem;
+}
+
+.main-container{
+    display: flex;
+    flex-direction: row-reverse;
+    color: var(--desc-clr);
+}
+
+.main-heading{
+    letter-spacing: 10px;
+    line-height: 1.2;
+    font-size: 4rem;
+    text-transform: uppercase;
+    font-weight: var(--font-small);
+    margin-block-start: 5rem;
+}
+.main-heading div{
+    font-weight: var(--font-large);
+    color: var(--head-clr);
+}
+
+button{
+    background: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+    border: 1px solid #e6e6e6;
+    position: absolute;
+    padding: 1.2rem 2.5rem;
+    border-radius: 2rem;
+    right: 0rem;
+    cursor: pointer;
+}
+
+input{
+    background: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+    border-radius: 2rem;
+    border: 1px solid #e6e6e6;
+    padding: 1rem 1.5rem;
+    width: 100%;
+    outline: none;
+    color: var(--head-clr);
+}
+
+input[type=text]:focus,input:focus-visible{
+    border: 1px solid #e6e6e6;
+    
+}
+
+form{
+    display: flex;
+    position: relative;
+}
+
+button:hover{
+    transition: box-shadow .2s ease-in;
+    box-shadow: 1px 1px 17px var(--desc-clr);
+}
+
+.mobile-logo{
+    display: none;
+}
+.hide{
+    display: none;
+}
+.error-msg{
+    color: var(--err-border-clr);
+    margin-block-start: -1.2rem;
+    align-self: flex-start;
+    margin-inline-start: 1.5rem;
+    font-weight: var(--font-small);
+    font-size: .9rem;
+}
+.err-icon{
+    position: relative;
+    top: 1.1rem;
+    right: 7rem;
+}
+.input-err{
+    border: 2px solid var(--err-border-clr) !important;
+}
+
+@media (max-width:850px){
+    .main-container{
+        display: grid;
+        grid-template-rows: .1fr .8fr 1fr;
+    }
+    .main-heading{
+        font-size: 3rem;
+        margin-block-start: 0;
+    }
+    .desktop-logo{
+        display: none;
+    }
+    .content-wrapper{
+        align-items: center;
+        text-align: center;
+        margin: 3rem;
+        margin-block-start: 2rem;
+    }
+    .mobile-logo{
+        display: block;
+        padding: 2rem 0rem 2rem 3rem;
+    }
+    form{
+        width: 100%;
+    }
+    .img-wrapper{
+        background: url(./images/hero-mobile.jpg) no-repeat;
+        background-size: cover;
+    }
+}
